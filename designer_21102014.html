@@ -1,0 +1,418 @@
+<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/font.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/fabric.js"></script>
+<script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script type="text/javascript" src="js/designercontent.js"></script>
+
+
+<script>
+  </script>
+<script>
+	/*designID = {$designID};
+	productID = {$productID};
+	callbackURL = 'index.php?id_product=' + productID + '&controller=product&designcallback=1';
+	helpText = '{$helpText}';
+	isLockedResolution = {$lockedResolution};
+	templateURL = '{$templateURL}';*/
+</script>
+
+<style>
+	#dialog-form {
+		overflow: scroll !important;  /* or 'visible' whatever */
+	}
+	#panel
+	{
+		position: absolute;
+		height: 100%;
+		background: transparent;
+		right: 0;
+		text-align: center;
+		z-index: 1000;
+	}
+
+	#panel-content
+	{
+		position: relative;
+		width: 175px;
+		height: 100%;
+		background: #EEEEEE;
+		float:right;
+	}
+
+	#panel-tab
+	{
+		position: relative;
+		width: 50px;
+		height: 100%;
+		background-color: transparent;
+		float:left;
+	}
+
+	#myTab
+	{
+		position: relative;
+		top: 150px;
+		background: #EEEEEE;
+		height: 120px;
+		width: 90%;
+		text-align:center;
+	}
+
+	#myTab p
+	{
+		margin: 0;
+	}
+
+	#gallery { float: left; width: 130px; overflow-y:auto; min-height: 12em; height:450px;}
+	.gallery.custom-state-active { background: #eee; }
+	.gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+	.gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+	.gallery li a { float: right; }
+	.gallery li a.ui-icon-zoomin { float: left; }
+	.gallery li img { width: 100%; cursor: move; }
+</style>
+<style>
+/* latin */
+@font-face {
+	font-family: 'Rubik Mono One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Rubik Mono One Regular'), local('RubikMonoOne-Regular'), url('font/RubikMonoOne.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+</style>
+<div class="EditContainer">
+	<div id="controlbuttongroup">
+		<table><tr>
+			<td><div id="systemButtons">
+				<div id="LogoButton" class="controlbutton" title="Home">
+					<div class="icon"></div>
+					<label>Product</label>
+				</div>
+				<div id="SaveButton" class="controlbutton" title="Save">
+					<div class="icon"></div>
+					<label>Save Draft</label>
+				</div>
+				<div id="SubmitButton" class="controlbutton" title="Submit Your Design">
+					<div class="icon"></div>
+					<label>Submit</label>
+				</div>
+				<div id="HelpButton" class="controlbutton" title="Help">
+					<div class="icon"></div>
+					<label>Help</label>
+					<!--http://mystatus.skype.com/username.txt-->
+				</div>
+			</div></td>
+			<td><div id="actionButtons">
+				<div id="UploadButton" class="controlbutton" title="Upload Your Photo">
+					<div class="icon"></div>
+					<label>Photo</label>
+					<input type="file" id="UploadImage" accept="image/*">
+				</div>
+				<div id="ShapesButton" class="controlbutton" title="Add Clip Art">
+					<div class="icon"></div>
+					<label>Clipart</label>
+				</div>
+				<div id="AddTextButton" class="controlbutton" title="Add Text">
+					<div class="icon"></div>
+					<label>Text</label>
+				</div>
+				<div id="CloneButton" class="controlbutton disabled" title="Clone">
+					<div class="icon"></div>
+					<label>Clone</label>
+				</div>
+				<div id="GroupButton" class="controlbutton disabled" title="Group">
+					<div class="icon"></div>
+					<label>Group</label>
+				</div>
+				<div id="UnGroupButton" class="controlbutton disabled" title="UnGroup">
+					<div class="icon"></div>
+					<label>UnGroup</label>
+				</div>
+			</div></td>
+			<td><div id="actionButtons">
+				<div id="UndoButton" class="controlbutton disabled" title="Undo">
+					<div class="icon"></div>
+					<label>Undo</label>
+				</div>
+				<div id="RedoButton" class="controlbutton disabled" title="Redo">
+					<div class="icon"></div>
+					<label>Redo</label>
+				</div>
+				<div id="DeleteButton" class="controlbutton disabled" title="Delete">
+					<div class="icon"></div>
+					<label>Delete</label>
+				</div>
+			</div></td>
+			<td><div id="zoomButtons">
+				<div id="ZoomInButton" class="controlbutton" title="Zoom In">
+					<div class="icon"></div>
+					<label>Zoom In</label>
+				</div>
+				<div id="ZoomOutButton" class="controlbutton" title="Zoom Out">
+					<div class="icon"></div>
+					<label>Zoom Out</label>
+				</div>
+				<div id="ZoomFactorDiv" class="controlbutton">
+					<div class="icon"></div>
+					<div class="content">
+						<input type="text" id="ZoomFactorInput">
+						<label for="ZoomFactorInput">%</label>
+						<label id="ZoomReset">Reset</label>
+					</div>
+				</div>
+			</div></td>
+		</tr></table>
+	</div>
+	<div id="maincontainer">
+		<div id="settingpanelgroup" contextualtype="uninit">
+			<div id="backgroundPanel" class="settingPanel selected">
+				<label for="backgroundPanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Settings
+				</label>
+				<div id="sizeAndOption" class="settingOption">
+					<label>Size & Options:</label>
+					<select id="selectionLengthCanvas">
+						<option value="custom">Custom</option>
+						<option value="100 200" selected="selected">100 mm x 200 mm</option>
+						<option value="120 250">120 mm x 250 mm</option>
+						<option value="150 300">150 mm x 300 mm</option>
+						<option value="200 400">200 mm x 400 mm</option>
+					</select>
+					<div id="WHbox">
+						<div id="WHrectbox"></div>
+						<label id="widthLabel" for="widthCanvas">Width:</label>
+						<label id="heightLabel" for="heightCanvas">Height:</label>
+						<input type="text" class="specialInput" id="heightCanvas">
+						<input type="text" class="specialInput" id="widthCanvas">
+					</div>
+				</div>
+				<div id="backgroundColor" class="settingOption">
+					<label>Background Color:</label>
+					<color-picker id="backgroundColorPicker"></color-picker>
+					<div id="uploadbackgroundbutton">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/addbackgroundimage.png" width="34" height="33">
+						<label>Image</label>
+						<input type="file" id="BackgroundUploadImage" accept="image/*">
+					</div>
+					<div id="removebackgroundbutton">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/removebackgroundimage.png" width="34" height="33">
+					</div>
+				</div>
+			</div>
+
+			<link rel="stylesheet" href="./css/fontselector.css">
+			<script type="text/javascript" src="./js/jquery.fontselector.js"></script>
+
+			<div id="textPanel" class="settingPanel selected">
+				<label for="textPanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Text Style
+				</label>
+				<div id="formatTextOption" class="settingOption">
+					<!--<input type="text" id="textContent" value="New Text">-->
+
+
+					<div>
+						<div id="fontSelect" class="fontSelect" style="overflow: hidden; width:180px;">
+							<div class="arrow-down"></div>
+						</div>
+					</div>
+
+					<div class="groupTextStyle">
+						<input type="checkbox" id="boldText" class="textStyleButton" value="bold">
+						<input type="checkbox" id="italicText" class="textStyleButton" value="italic">
+						<input type="checkbox" id="underlineText" class="textStyleButton" value="underline">
+						<input type="text" id="fontSize" value="40"><label for="fontSize">px</label>
+					</div>
+					<div class="groupTextStyle">
+						<input type="radio" id="leftAlignText" name="textAlign" class="textStyleButton" value="left">
+						<input type="radio" id="centerAlignText" name="textAlign" class="textStyleButton" value="center">
+						<input type="radio" id="rightAlignText" name="textAlign" class="textStyleButton" value="right">
+					</div>
+				</div>
+				<div id="textColorOption" class="settingOption">
+					<label>Text color:</label>
+					<color-picker id="textColorPicker"></color-picker>
+				</div>
+				<div id="outlinepenColorOption" class="settingOption">
+					<label>outline pen color:</label>
+					<label style="margin-left:20px;">Width:</label>
+					<div align="center" style="margin-top:-20px;">
+					<select style="width:60px" id="strokeWidth">
+						<option value="1">None</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+					</div>
+					<color-picker id="outlinepenColorPicker"></color-picker>
+				</div>
+				<div id="textLayerOption" class="settingOption">
+					<label>Layer Position:</label>
+					<div class="layerbutton front">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerfront.svg">
+						<label>Bring to the Front</label>
+					</div>
+					<div class="layerbutton back">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerback.svg">
+						<label>Send to the Back</label>
+					</div>
+				</div>
+			</div>
+			<div id="shapePanel" class="settingPanel selected">
+				<label for="ShapePanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Shape Options
+				</label>
+				<div id="shapeFlipOption" class="settingOption">
+					<input type="checkbox" id="shapeFlip" class="tickbutton"><label for="shapeFlip">Flip Shape</label><br>
+				</div>
+				<div id="shapeColorOption" class="settingOption">
+					<label>Shape color:</label>
+					<color-picker id="shapeColorPicker"></color-picker>
+				</div>
+				<div id="shapeFadeOption" class="settingOption">
+					<label for="shapeFadeOption">Fade:</label>
+					<div class="rangeContainer">
+						<svg width="170" height="41" viewBox="-7 -3 170 41">
+							<path style="fill:#BCBDBA;fill-opacity:1" d="M17.35,11.25L25.95 12.05Q23.05 15.9 19.45 18.6Q20.9 23.45 21.25 27.65Q17.25 25.55 13.45 22.9L13.4 22.9L5.6 27.65Q5.95 23.45 7.4 18.55Q3.8 15.85 0.9 12.05L9.5 11.25L13.45 2.65L17.35 11.25" />
+							<path style="fill:#767675;fill-opacity:1" d="M142.8,2.65L146.7 11.25L155.3 12.05Q152.45 15.9 148.85 18.6Q150.3 23.45 150.65 27.65Q146.65 25.55 142.85 22.9L142.8 22.9L135 27.65Q135.3 23.45 136.8 18.55Q134.55 16.85 132.2 14.3L130.3 12.05L138.9 11.25L142.8 2.65" />
+						</svg>
+						<input type="range" id="fadeShape" min="0" max="100" value="100"><br>
+					</div>
+				</div>
+				<div id="shapeLayerOption" class="settingOption">
+					<label>Layer Position:</label>
+					<div class="layerbutton front">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerfront.svg">
+						<label>Bring to the Front</label>
+					</div>
+					<div class="layerbutton back">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerback.svg">
+						<label>Send to the Back</label>
+					</div>
+				</div>
+			</div>
+			<div id="photoPanel" class="settingPanel selected">
+				<label for="PhotoPanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Image Options
+				</label>
+				<div id="photoTransparentOption" class="settingOption">
+					<input type="checkbox" id="convertWhiteToTransparent" class="tickbutton"><label for="convertWhiteToTransparent">Transparent <span style="color:grey">(White)</span></label><br>
+				</div>
+				<div id="photoFadeOption" class="settingOption">
+					<label for="photoFadeOption">Fade:</label>
+					<div class="rangeContainer">
+						<svg width="170" height="41" viewBox="-7 -3 170 41">
+							<path style="fill:#BCBDBA;fill-opacity:1" d="M17.35,11.25L25.95 12.05Q23.05 15.9 19.45 18.6Q20.9 23.45 21.25 27.65Q17.25 25.55 13.45 22.9L13.4 22.9L5.6 27.65Q5.95 23.45 7.4 18.55Q3.8 15.85 0.9 12.05L9.5 11.25L13.45 2.65L17.35 11.25" />
+							<path style="fill:#767675;fill-opacity:1" d="M142.8,2.65L146.7 11.25L155.3 12.05Q152.45 15.9 148.85 18.6Q150.3 23.45 150.65 27.65Q146.65 25.55 142.85 22.9L142.8 22.9L135 27.65Q135.3 23.45 136.8 18.55Q134.55 16.85 132.2 14.3L130.3 12.05L138.9 11.25L142.8 2.65" />
+						</svg>
+						<input type="range" id="fadeImage" min="0" max="100" value="100"><br>
+					</div>
+				</div>
+				<div id="photoLayerOption" class="settingOption">
+					<label>Layer Position:</label>
+					<div class="layerbutton front">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerfront.svg">
+						<label>Bring to the Front</label>
+					</div>
+					<div class="layerbutton back">
+						<img src="http://orderonline.co.nz/modules/designer/css/icon/layerback.svg">
+						<label>Send to the Back</label>
+					</div>
+				</div>
+			</div>
+			<div id="shapeSelectPanel" class="settingPanel selected">
+				<label for="shapeSelectPanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Clip Art
+				</label>
+				<div id="SearchOption" class="settingOption">
+					<div></div>
+					<label for="searchClipArt">Search for:</label>
+					<input type="search" class="searchInput system" id="searchClipArt">
+					<button id="searchClipArtButton">Go</button>
+					<label for="categoryClipArt">Category:</label>
+					<select id="categoryClipArt" class="system">
+						<option value="All_All" selected>All</option>
+					</select>
+				</div>
+				<div id="clipArtSelector" class="settingOption">
+					<div id="clipArtHolder">
+
+					</div>
+				</div>
+			</div>
+			<div id="helpPanel" class="settingPanel selected">
+				<label for="helpPanel" class="labelSettingPanel">
+					<img class="icon" src="http://orderonline.co.nz/modules/designer/css/icon/blank.png">Help
+				</label>
+				<div id="helpContentContainer" class="settingOption">
+					<div id="helpContent">
+						Shortcut:<br>
+							Cut: Ctrl + X<br>
+							Copy: Ctrl + C<br>
+							Paste: Ctrl + V<br><br>
+							Save: Ctrl + S<br>
+							Undo: Ctrl + Z<br>
+							Redo: Ctrl + Y<br>
+							Delete: Delete<br>
+							Zoom in: +<br>
+							Zoom out: -<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="drawcanvas" style="">
+			<div id="panel">
+				<div id="panel-content">
+					<h4 class="ui-widget-header"><span>Slides</span></h4>
+					<button name='addnewslide' id='addnewslide'>Add Slide</button></br>
+					<button name='duplicateslide' id='duplicateslide'>Duplicate Slide</button>
+					<div id="pagePanel" style="padding: 10px">
+						<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+						</ul>
+					</div>
+				</div>
+				<div id="panel-tab">
+					<div id="myTab">
+						<p>S</p>
+						<p>L</p>
+						<p>I</p>
+						<p>D</p>
+						<p>E</p>
+						<p>S</p>
+					</div>
+				</div>
+    		</div>
+			<div id="canvasbox">
+			</div>
+		</div>
+	</div>
+</div>
+<div id="covercontainer">
+	<div id="coverholder">
+		<h2 id="coverLabel">Preview Your Submission</h2>
+		<img id="previewDesign" src="">
+		<progress id="uploadProgressBar" max="100" value="0"></progress>
+		<button id="closeCover">OK</button>
+	</div>
+</div>
+
+<div id="dialog-form" title="Create new page">
+  <p class="validateTips">All form fields are required.</p>
+
+  <form>
+    <fieldset>
+      <label for="slidename">Slide Name</label>
+      <input type="text" name="slidename" id="slidename" value="First Slide" placeholder="Enter page name" class="text ui-widget-content ui-corner-all">
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+
+</head>
+<body>
