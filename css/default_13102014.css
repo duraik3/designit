@@ -1,0 +1,924 @@
+﻿body {
+	margin: 0;
+	overflow: hidden;
+}
+#header_user, #header {
+	display: none;
+}
+html, body, #page, #columns, #center_column, .EditContainer {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+.EditContainer {
+	position: relative;
+	overflow-y: hidden;
+}
+#controlbuttongroup {
+	height: 84px;
+	background-color: #404040;
+	width: 100%;
+}
+.controlbutton ,.logobutton {
+	float: left;
+	width: 64px;
+	height: 80px;
+	cursor: pointer;
+	text-align: center;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.controlbutton:hover {background-color: #808080;}
+.controlbutton label {
+	display:inline-block;
+	cursor: inherit;
+	font-family: Arial Narrow;
+	font-size: 12px;
+	color: white;
+	padding-top: 2px;
+}
+.controlbutton .icon {
+	width: 54px;
+	height: 54px;
+	margin: auto;
+	margin-top: 3px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: 0;
+}
+.controlbutton.disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+#LogoButton.controlbutton .icon {background-image: url("icon/logo.svg");}
+#SaveButton.controlbutton .icon {background-image: url("icon/iconsave.svg");}
+#CloneButton.controlbutton .icon {background-image: url("icon/iconclone.svg");}
+#UndoButton.controlbutton .icon {background-image: url("icon/iconundo.svg");}
+#RedoButton.controlbutton .icon {background-image: url("icon/iconredo.svg");}
+#DeleteButton.controlbutton .icon {background-image: url("icon/icondelete.svg");}
+#UploadButton.controlbutton .icon {background-image: url("icon/iconupload.svg");}
+#AddTextButton.controlbutton .icon {background-image: url("icon/icontext.svg");}
+#ShapesButton.controlbutton .icon {background-image: url("icon/iconshape.svg");}
+#RestartButton.controlbutton .icon {background-image: url("icon/iconrestart.svg");}
+#HelpButton.controlbutton .icon {background-image: url("icon/helps.svg");}
+#SubmitButton.controlbutton .icon {background-image: url("icon/iconsubmit.svg");}
+#ZoomInButton.controlbutton .icon {background-image: url("icon/iconzoomin.svg");}
+#ZoomOutButton.controlbutton .icon {background-image: url("icon/iconzoomout.svg");}
+#ZoomFactorDiv.controlbutton .icon {background-image: url("icon/iconzoomlevel.svg");margin-top: 10px;}
+#SaveButton.controlbutton.saved label{
+	color: red;
+}
+
+#actionButtons {
+	text-align: center;
+}
+
+#controlbuttongroup table {width: 100%;}
+#controlbuttongroup table tr td:first-child {width: 400px;}
+#controlbuttongroup table tr td:last-child {width: 200px;}
+#controlbuttongroup table tbody tr td {padding: 0;border: none;}
+#zoomButtons>div {
+	float:left;
+}
+#controlbuttongroup #ZoomFactorDiv .content {
+	position: relative;
+	top: -43px;
+	left: -1px;
+}
+#controlbuttongroup #ZoomFactorDiv input {
+	border: none;
+	width: 30px;
+	padding: 0;
+	margin: 0;
+}
+#controlbuttongroup #ZoomFactorDiv input,#controlbuttongroup #ZoomFactorDiv label{
+	color: white;
+	height: 14px;
+	text-align: right;
+	line-height: 10px;
+	font-size: 13px;
+	font-weight: bolder;
+	background: none;
+}
+#controlbuttongroup #ZoomFactorDiv #ZoomReset {
+	color: rgb(35,161,218);
+	cursor: pointer;
+}
+#controlbuttongroup #ZoomFactorDiv input:focus{outline: none;}
+
+#settingpanelgroup #clipArtSelector.settingOption {
+	margin-top: 10px;
+}
+#clipArtHolder {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 170px;
+	height: 350px;
+	border: solid 1px #A9A9A9;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#settingpanelgroup #SearchOption label[for="searchClipArt"] {
+	margin-top: 5px;
+	display: inline-block;
+}
+#settingpanelgroup #SearchOption label[for="searchClipArt"], #SearchOption label[for="categoryClipArt"]{
+	margin-left: 10px;
+}
+#settingpanelgroup #SearchOption #searchClipArt{
+	margin-left: 10px;
+	margin-top: 3px;
+	width: 130px;
+	line-height: initial;
+}
+#settingpanelgroup #SearchOption #categoryClipArt {
+	margin-left: 10px;
+	margin-top: 3px;
+	width: 170px;
+}
+.clipartThumb {
+	width: 60px;
+	height: 60px;
+	border: solid 1px grey;
+	overflow: hidden;
+	margin: 2px;
+	display: inline-block;
+}
+.clipartThumb:hover {
+	border-color: rgb(121,155,210);
+}
+.clipartThumb img {
+	width: 100%;
+	height: 100%;
+}
+#helpContentContainer #helpContent {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 170px;
+	max-height: 430px;
+	border: solid 1px #A9A9A9;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#maincontainer {
+	height: calc(100% - 84px);
+	min-height: 559px;
+}
+#settingpanelgroup {
+	width: 200px;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	box-shadow: 0px 0px 5px #BBBBBB;
+	color: #4D4D4D;
+}
+#settingpanelgroup select {
+	display:block;
+	width: 150px;
+	height: 25px;
+	font-size: 11px;
+	background-color: #FAFAFA;
+	margin-left: 20px;
+}
+#settingpanelgroup .settingPanel {
+	transition: height 500ms ease-in-out;
+	overflow: hidden;
+}
+#settingpanelgroup .settingPanel:not(.selected){
+	height: 35px!important;
+}
+#settingpanelgroup .settingPanel .labelSettingPanel {
+	display: block;
+	padding-left: 15px;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background-color:#EEEEEE;
+	color: #777777;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("icon/rightarrownormal.svg");
+	background-repeat: no-repeat;
+	background-position: 170px center;
+}
+#settingpanelgroup:not([contextualtype="uninit"]):not([contextualtype="text"]) #textPanel {height: 0!important;}
+#settingpanelgroup:not([contextualtype="uninit"]):not([contextualtype="shape"]) #shapePanel {height: 0!important;}
+#settingpanelgroup:not([contextualtype="uninit"]):not([contextualtype="photo"]) #photoPanel {height: 0!important;}
+#settingpanelgroup:not([contextualtype="uninit"]):not([contextualtype="clipart"]) #shapeSelectPanel {height: 0!important;}
+#settingpanelgroup:not([contextualtype="uninit"]):not([contextualtype="help"]) #helpPanel {height: 0!important;}
+
+#settingpanelgroup .settingPanel.selected {
+	margin-bottom: 20px;
+}
+#settingpanelgroup .settingPanel.selected .labelSettingPanel {
+	background-color:#707070;
+	background-image: url("icon/rightarrowselected.svg");
+	color: white;
+	border-bottom: 2px solid rgb(55,64,73);
+}
+
+#settingpanelgroup .settingOption>label:first-child {
+	display: block;
+	padding-left: 15px;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	background-color:#EEEEEE;
+	color: #777777;
+	font-weight: 900;
+	font-family: Arial;
+	text-transform: uppercase;
+	font-size: 12px;
+	border-bottom: 3px solid #CCCCCC;
+	margin-bottom: 13px;
+}
+#settingpanelgroup .settingOption:not(:nth-of-type(1)){
+	margin-top: 20px;
+}
+#settingpanelgroup input[type=checkbox].tickbutton {
+	position: relative;
+    border-radius:5px;
+    border: 2.5px solid #CCCCCC;
+    background-color:#EAEAEA;
+    color: rgb(34,160,218);
+    width: 20px;
+    height: 20px;
+	appearance: button;
+	-o-appearance:button;
+	-moz-appearance:button;
+	-webkit-appearance:button;
+	vertical-align: middle;
+	margin-left: 15px;
+}
+#settingpanelgroup label{
+	font-size: 13px;
+}
+#settingpanelgroup input[type=checkbox].tickbutton+label{
+	position: relative;
+	vertical-align: middle;
+}
+#settingpanelgroup input[type=checkbox].tickbutton+label:before{
+	content: '✔';
+	font-family: 'Times New Roman';
+	font-weight: normal;
+	position: absolute;
+	top: 2px;
+	left: -18px;
+	font-size: 14px;
+	color: rgb(34,160,218);
+	transition: opacity .2s;
+	opacity: 0;
+}
+#settingpanelgroup input[type=checkbox].tickbutton:checked {border-color: rgb(34,160,218);}
+#settingpanelgroup input[type=checkbox].tickbutton:hover {border-color: rgb(34,160,218);}
+#settingpanelgroup input[type=checkbox].tickbutton:focus {outline: none;}
+#settingpanelgroup input[type=checkbox].tickbutton:checked +label:before{
+	opacity: 1;
+}
+#settingpanelgroup .rangeContainer {
+	position: relative;
+	border: 1px solid #D0D0D0;
+	margin-left: 13px;
+	border-radius: 4px;
+	width: 170px;
+	background: linear-gradient(to right, rgba(242,242,242,1) 0%, rgba(242,242,242,1) 24%, rgba(255,255,255,1) 24%, rgba(255,255,255,1) 76%, rgba(242,242,242,1) 76%, rgba(242,242,242,1) 100%);
+}
+#settingpanelgroup input[type=range] {
+    width: 77px;
+    height: 1px;
+    background-color:#AAAAAA;
+	position: absolute;
+	left: 45px;
+	top: 16px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+#settingpanelgroup input[type=range]:focus {outline: none;}
+#settingpanelgroup input[type="range"]::-webkit-slider-thumb {
+    background-color: rgb(0,161,211);
+    border-radius: 4px;
+    border-bottom: 2px solid rgb(21,118,149);
+    width: 15px;
+    height: 21px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+#settingpanelgroup input[type="range"] {
+	
+}
+
+.settingPanel input[type=text]:not(.specialInput) {
+	width: 150px;
+	height: 21px;
+	line-height:25px;
+	margin-left: 20px;
+	margin-top: 13px;
+	padding-left: 11px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: rgb(90,97,103);
+}
+.settingPanel #textContent {
+	margin-bottom: 10px;
+}
+.settingPanel #fontSize {
+	padding-left: 0;
+	width: 35px;
+	height: 30px;
+	line-height: 25px;
+	margin-top: 0;
+	text-align: center;
+	margin-left: 7px;
+	margin-right: 3px;
+}
+#settingpanelgroup .groupTextStyle {
+	margin-left: 20px;
+	margin-top: 10px;
+	height: 27px;
+}
+#settingpanelgroup .groupTextStyle .textStyleButton {
+	margin: 0px;
+	float: left;
+	border: solid 1px #DADADA;
+	background-size: 55% 55%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+	appearance: none;
+	-o-appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+#settingpanelgroup .groupTextStyle input[type=checkbox].textStyleButton {width: 33px;height: 27px;}
+#settingpanelgroup .groupTextStyle input[type=radio].textStyleButton {width: 40px;height: 35px;}
+#settingpanelgroup .groupTextStyle .textStyleButton:focus {outline: none;}
+#settingpanelgroup .groupTextStyle .textStyleButton:first-of-type {border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+#settingpanelgroup .groupTextStyle .textStyleButton:last-of-type {border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+#boldText {background-image:url("icon/icontextB.svg");}
+#boldText:hover, #boldText:checked {background-image:url("icon/icontextBblue.svg");}
+#italicText {background-image:url("icon/icontextI.svg");}
+#italicText:hover, #italicText:checked {background-image:url("icon/icontextIblue.svg");}
+#underlineText {background-image:url("icon/icontextU.svg");}
+#underlineText:hover, #underlineText:checked {background-image:url("icon/icontextUblue.svg");}
+#leftAlignText {background-image:url("icon/icontextL.svg");}
+#leftAlignText:hover, #leftAlignText:checked {background-image:url("icon/icontextLblue.svg");}
+#centerAlignText {background-image:url("icon/icontextM.svg");}
+#centerAlignText:hover, #centerAlignText:checked {background-image:url("icon/icontextMblue.svg");}
+#rightAlignText {background-image:url("icon/icontextR.svg");}
+#rightAlignText:hover, #rightAlignText:checked {background-image:url("icon/icontextRblue.svg");}
+#justifyAlignText {background-image:url("icon/icontextJ.svg");}
+#justifyAlignText:hover, #justifyAlignText:checked {background-image:url("icon/icontextJblue.svg");}
+
+.settingPanel input[type=text]:focus {outline: none;}
+.settingPanel .labelSettingPanel .icon {
+	margin-right:15px;
+	top: 2px;
+	position: relative;
+	width: 15px;
+	height: 15px;
+	background-size:100% 100%;
+}
+#backgroundPanel .labelSettingPanel .icon {background-image: url("icon/iconpanelbackground.svg");}
+#backgroundPanel.selected .labelSettingPanel .icon {background-image: url("icon/iconpanelbackgroundselected.svg");}
+#borderPanel .labelSettingPanel .icon {background-image: url("icon/iconpanelborder.svg");}
+#borderPanel.selected .labelSettingPanel .icon {background-image: url("icon/iconpanelborderselected.svg");}
+#editPanel .labelSettingPanel .icon {background-image: url("icon/background.svg");}
+#editPanel.selected .labelSettingPanel .icon {background-image: url("icon/background.svg");}
+#textPanel .labelSettingPanel .icon {background-image: url("icon/iconpaneltext.svg");}
+#textPanel.selected .labelSettingPanel .icon {background-image: url("icon/iconpaneltextselected.svg");}
+#shapePanel .labelSettingPanel .icon {background-image: url("icon/iconpanelshape.svg");}
+#shapePanel.selected .labelSettingPanel .icon {background-image: url("icon/iconpanelshapeselected.svg");}
+#photoPanel .labelSettingPanel .icon {background-image: url("icon/iconpanelphoto.svg");}
+#photoPanel.selected .labelSettingPanel .icon {background-image: url("icon/iconpanelphotoselected.svg");}
+
+#shapeFlipOption, #photoTransparentOption{
+	margin-top: 13px;
+}
+#borderWidth, #borderMargin {
+	width: 50px;
+}
+label[for=borderWidth]:first-of-type, label[for=borderMargin]:first-of-type {
+	display:inline-block;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 3px;
+}
+#settingpanelgroup #uploadbackgroundbutton, #settingpanelgroup #removebackgroundbutton {
+	height: 32px;
+	border: solid 1px #CFCFCF;
+	border-radius:5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top: 10px;
+	cursor: pointer;
+	display: inline-block;
+}
+#settingpanelgroup #removebackgroundbutton {
+	width: 47px;
+}
+#settingpanelgroup #uploadbackgroundbutton {
+	margin-left: 13px;
+	width: 100px;
+}
+#settingpanelgroup .layerbutton {
+	width: 170px;
+	height: 32px;
+	border: solid 1px #CFCFCF;
+	border-radius:5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-left: 13px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+#settingpanelgroup .layerbutton img, #settingpanelgroup #uploadbackgroundbutton img, #settingpanelgroup #removebackgroundbutton img{
+	vertical-align:middle;
+	margin-left: 7px;
+}
+#settingpanelgroup .layerbutton label, #settingpanelgroup #uploadbackgroundbutton label, #settingpanelgroup #removebackgroundbutton label{
+	margin-left: 5px;
+	margin-right: 10px;
+	font-size:12px;
+	cursor: pointer;
+}
+#settingpanelgroup .layerbutton:hover label{
+	color: rgb(34,160,218);
+}
+#settingpanelgroup .layerbutton:last-child {
+	margin-bottom: 0;
+}
+#WHbox {
+	position:relative;
+	height: 110px;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+#WHbox #WHrectbox {
+	z-index: -1;
+	position: absolute;
+	left: 20px;
+	width: 120px;
+	height: 90px;
+	border: 3px dashed rgb(25,144,234);
+}
+#WHbox input {
+	position: absolute;
+	border-radius: 4px;
+	width: 42px;
+	height: 19px;
+	color: #888888;
+	font-weight: 900;
+	font-size: 12px;
+	text-align:center;
+}
+#WHbox label {
+	position: absolute;
+	text-transform: uppercase;
+	color: #888888;
+	font-size: 11px;
+	font-weight: 900;
+	background: white;
+}
+#WHbox #widthLabel {top: 63px;left: 73px;}
+#WHbox #heightLabel {top: 21px;left: 3px;}
+#WHbox #widthCanvas {top: 80px;left: 70px;}
+#WHbox #heightCanvas {top: 37px;}
+#drawcanvas {
+	height: 100%;
+	float: left;
+	width: calc(100% - 280px);
+	height: calc(100% - 80px);
+	background: url("icon/grid.png");
+	overflow: scroll;
+	white-space: nowrap;
+	position: relative;
+	z-index: 0;
+	padding: 40px;
+}
+#holdercanvas {
+	position: relative;
+	margin: auto;
+	left: 0;
+	right: 0;
+	width: 500px;
+	height: 300px;
+	background-color: white;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 4px 1px #999999;
+	z-index: -999999;
+}
+#margincanvas {
+	position: relative;
+	pointer-events: none;
+	margin: auto;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	z-index: 999999;
+	border-style: solid;
+	border-color: black;
+	border-width: 0px;
+	visibility: hidden;
+}
+color-picker {
+	display: block;
+	height: 82px;
+	margin-left: 7px;
+}
+color-picker-button {
+	display: inline-block;
+	float: left;
+	width: 18px;
+	height: 18px;
+	border-radius: 3px;
+	border: 1px solid transparent;
+	margin-top: 6px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+color-picker-button:nth-of-type(7n+8) { clear: left; }
+color-picker-button.white{background: white;border:1px solid #C5C5C5;}
+color-picker-button.lightgrey{background: #D3D3D3;}
+color-picker-button.red{background: #D30008;}
+color-picker-button.yellow{background: #ECE824;}
+color-picker-button.lightgreen{background: #8FDB21;}
+color-picker-button.lightblue{background: #159CD8;}
+color-picker-button.pink{background: #CB89BB;}
+color-picker-button.black{background: black;}
+color-picker-button.grey{background: #6F6F6F;}
+color-picker-button.brown{background: #993229;}
+color-picker-button.orange{background: #F57E20;}
+color-picker-button.green{background: #008C4A;}
+color-picker-button.blue{background: #0059B4;}
+color-picker-button.purple{background: #75449A;}
+color-picker-button.picker{background: #F0F0F0;border:1px solid #CECECE;}
+color-picker-button.colorpicker{background: url("icon/colorpicker.jpg") no-repeat;background-size:100% 100%}
+color-picker input[type="color"], #UploadImage, #BackgroundUploadImage {position:absolute;width: 0px;height:0px;opacity:0;visibility: hidden;}
+color-picker .divider {
+	float:left;
+	display: inline-block;
+	margin-top: 4px;
+	margin-left: 3px;
+	width: 177px;
+	height: 1px;
+	background-color: #CECECE;
+}
+
+draw-object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	display: block;
+	outline: 2px dashed transparent;
+	transform-origin:50% 50%;
+	transition: background-color 50ms linear,outline 50ms linear;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+draw-object:focus {
+	outline: 0;
+}
+draw-object b,draw-object label{
+	cursor: pointer;
+}
+draw-object .content, draw-object .content img {
+	width: 100%;
+	height: 100%;
+}
+draw-object .content{
+	overflow: hidden;
+}
+draw-object .content .translayer {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+draw-object .content span{
+	display: inline-block;
+	transform-origin: 0% 0%;
+	text-decoration: inherit;
+}
+draw-object .content object{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+draw-object:not(.selected)>*:not(.content) {
+	visibility: hidden;
+}
+draw-object:hover resize-button:not(.r-button) {
+	visibility: visible!important;
+}
+draw-object.selected.rotated .drawline, draw-object.selected.rotated .drawarrow.topcorner-arrow, draw-object.selected.rotated .drawarrow.leftcorner-arrow {
+	visibility: hidden;
+}
+draw-object.selected, draw-object:hover {
+	outline: 2px dashed #999999;
+	background-color: rgba(206,206,206,0.2);
+}
+draw-object>*:not(.content):not(resize-button) {
+	z-index: 99999;
+}
+draw-object resize-button{
+	position: absolute;
+	background-color: rgb(0,135,239);
+	border-radius: 50%;
+	border: 2px solid white;
+	box-shadow: 0 0 2px #888888;
+	transition: visibility 50ms linear;
+	z-index: 199999;
+}
+draw-object resize-button:nth-of-type(1),draw-object resize-button:nth-of-type(2),draw-object resize-button:nth-of-type(3),draw-object resize-button:nth-of-type(4) {
+	width:9px;
+    height:9px;
+}
+draw-object resize-button:nth-of-type(5),draw-object resize-button:nth-of-type(6),draw-object resize-button:nth-of-type(7),draw-object resize-button:nth-of-type(8) {
+	width:6px;
+    height:6px;
+}
+draw-object.rotated resize-button:not(.r-button) {
+	cursor: not-allowed;
+}
+draw-object .nw-button{
+	cursor: nw-resize;
+	top: -7px;
+	left: -7px;
+}
+draw-object .ne-button{
+	cursor: ne-resize;
+	top: -7px;
+	right: -7px;
+}
+draw-object .sw-button{
+	cursor: sw-resize;
+	bottom: -7px;
+	left: -7px;
+}
+draw-object .se-button{
+	cursor: se-resize;
+	bottom: -7px;
+	right: -7px;
+}
+draw-object .n-button{
+	cursor: n-resize;
+	top: -6px;
+	left: calc(48% - 3px);
+}
+draw-object .s-button{
+	cursor: s-resize;
+	bottom: -6px;
+	left: calc(48% - 3px);
+}
+draw-object .w-button{
+	cursor: w-resize;
+	top: calc(48% - 3px);
+	left: -6px;
+	
+}
+draw-object .e-button{
+	cursor: e-resize;
+	top: calc(48% - 3px);
+	right: -6px;
+}
+draw-object .r-button{
+	cursor: url("icon/rotate.cur"), default;
+	background-image: url("icon/rotateicon.svg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	top: -25px;
+	left: -25px;
+	width: 15px;
+	height: 15px;
+}
+draw-object .drawline{
+	width: 1.05px;
+	height: 1.05px;
+	background-color: rgb(0,207,245);
+	position: absolute;
+	transition: visibility 50ms linear;
+	cursor: default;
+}
+draw-object .drawline.topleft-line{left: 0px;}
+draw-object .drawline.topright-line{right: 0px;}
+draw-object .drawline.lefttop-line{top: 0px;}
+draw-object .drawline.leftbot-line{bottom: 0px;}
+
+draw-object .drawarrow{
+	width: 1.05px;
+	height: 1.05px;
+	background-color: #666666;
+	position: absolute;
+	transition: visibility 50ms linear;
+	cursor: default;
+}
+draw-object .drawarrow.width-arrow, draw-object .drawarrow.leftcorner-arrow {
+	background: -webkit-radial-gradient(circle, transparent 6mm, transparent 0px, #666666 0px, #666666);
+    background: -o-radial-gradient(circle, transparent 6mm, transparent 0px, #666666 0px, #666666);
+    background: -moz-radial-gradient(circle, transparent 6mm, transparent 0px, #666666 0px, #666666);
+    background: radial-gradient(circle, transparent 6mm, transparent 0px, #666666 0px, #666666);
+}
+draw-object .drawarrow.height-arrow, draw-object .drawarrow.topcorner-arrow {
+	background: -webkit-radial-gradient(circle, transparent 2.5mm, transparent 0px, #666666 0px, #666666);
+    background: -o-radial-gradient(circle, transparent 2.5mm, transparent 0px, #666666 0px, #666666);
+    background: -moz-radial-gradient(circle, transparent 2.5mm, transparent 0px, #666666 0px, #666666);
+    background: radial-gradient(circle, transparent 2.5mm, transparent 0px, #666666 0px, #666666);
+}
+draw-object .drawarrow:before,draw-object .drawarrow:after{
+	content: " ";
+	display: block;
+	/*width: 9px;height: 11px;*/
+	position: absolute;
+	width: 0; 
+	height: 0; 
+	z-index: -1;
+	border-top: 3px solid transparent;
+	border-bottom: 4px solid transparent;
+	
+	border-left: 12px solid #666666;
+}
+draw-object .drawarrow.width-arrow:before, draw-object .drawarrow.leftcorner-arrow:before{
+	top: -3.5px;
+	left: 0px;
+	-webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+draw-object .drawarrow.width-arrow:after, draw-object .drawarrow.leftcorner-arrow:after{
+	top: -2.5px;
+	right: 0px;
+}
+draw-object .drawarrow.height-arrow:before, draw-object .drawarrow.topcorner-arrow:before{
+	top: 0px;
+	left: -5px;
+	-webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+draw-object .drawarrow.height-arrow:after, draw-object .drawarrow.topcorner-arrow:after{
+	bottom: 0px;
+	left: -6px;
+	-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+draw-object .drawarrow.width-arrow{
+	width: 100%;
+	top: -20px;
+	left: 0;
+}
+draw-object .drawarrow.height-arrow{
+	height: 100%;
+	top: 0;
+	left: -60px;
+}
+draw-object .drawarrow.topcorner-arrow{
+	left: 0;
+}
+draw-object .drawarrow.leftcorner-arrow{
+	top: 0;
+}
+draw-object .drawarrow input{
+	position: absolute;
+	border: none;
+	width: 12mm;
+	height: 5mm;
+	color: green;
+	font-family: Vernada;
+	background-color: white;
+	transition: visibility 50ms linear;
+	cursor: default;
+	opacity: 0.75;
+	text-align: center;
+	font-size: 3.5mm;
+	line-height: 5mm;
+}
+draw-object .drawarrow input:focus,draw-object .rotation input:focus {outline:none;}
+draw-object .drawarrow.width-arrow input,draw-object .drawarrow.leftcorner-arrow input{
+	top: -2.5mm;
+	left: calc(50% - 6mm);
+}
+draw-object .drawarrow.height-arrow input,draw-object .drawarrow.topcorner-arrow input{
+	top: calc(50% - 2.5mm);
+	left: -6mm;
+}
+draw-object .rotation {
+	position: absolute;
+	top: -40px;
+	left: -50px;
+	transition: visibility 50ms linear;
+	background-color: white;
+	opacity: 0.75;
+	font-family: Vernada;
+	font-size: 3.5mm;
+	color: green;
+}
+draw-object .rotation label {
+	height: 5mm;
+	line-height: 5mm;
+	cursor: default;
+}
+draw-object .rotation input {
+	position: static;
+	text-align: right;
+	width: 20px;
+	border: none;
+	height: 5mm;
+	cursor: default;
+	line-height: 5mm;
+	font-family: Vernada;
+	font-size: 3.5mm;
+	color: green;
+	float: left;
+}
+#debugpoint {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color:red;
+	display: block;
+}
+#debugpoint2 {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color:yellow;
+	display: block;
+}
+#debugpoint3 {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color:blue;
+	display: block;
+}
+#covercontainer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	background-color: rgba(255,255,255,0.75);
+}
+#coverholder {
+	position: relative;
+	top: 8%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	height: 80%;
+	background: white;
+	box-shadow: 0px 0px 5px #BBBBBB;
+	padding: 10px;
+}
+#coverholder img {
+	width: 100%;
+	height: 90%;
+}
+#coverholder h2 {
+	margin: 0;
+	text-align: center;
+	color: green;
+}
+#coverholder img {
+	width: auto;
+	height: calc(100% - 50px);
+	margin-bottom:2px;
+}
+#coverholder #uploadProgressBar {
+	float: left;
+	height: 22px;
+	width: calc(100% - 40px);
+}
+#coverholder #closeCover {
+	float: left;
+	margin: 0;
+	margin-left: 3px;
+}
