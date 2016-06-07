@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.5mm" height="4.5mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 450 450"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#FEFEFE;stroke-width:20}
+    .fil3 {fill:none}
+    .fil1 {fill:#FEFEFE}
+    .fil0 {fill:#1BA1E2}
+    .fil2 {fill:#00AFEF;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M450 225l0 225 -224 0c0,0 0,0 0,0 -125,0 -226,-101 -226,-225 0,-126 101,-225 226,-225 124,0 224,99 224,225 0,0 0,0 0,0z"/>
+  <rect class="fil1" x="84" y="91" width="282" height="267"/>
+  <path class="fil2" d="M90 238l94 113 -94 0 0 -113zm47 57m0 57m-47 -57"/>
+  <path class="fil2" d="M361 238l-94 113 94 0 0 -113zm-47 57m0 57m47 -57"/>
+  <path class="fil2" d="M336 351l-94 -230 -150 230 244 0zm-47 -115m-122 0m47 115"/>
+  <path class="fil3 str0" d="M329 264c39,0 71,32 71,71 0,39 -32,71 -71,71 -39,0 -71,-32 -71,-71 0,-39 32,-71 71,-71z"/>
+  <path class="fil0" d="M329 264c39,0 71,32 71,71 0,39 -32,71 -71,71 -39,0 -71,-32 -71,-71 0,-39 32,-71 71,-71zm40 58l-24 0 0 -24c0,-7 -6,-13 -13,-13 -8,0 -14,6 -14,13l0 24 -24 0c-7,0 -13,6 -13,13 0,7 6,13 13,13l24 0 0 25c0,7 6,13 14,13 7,0 13,-6 13,-13l0 -25 24 0c8,0 14,-6 14,-13 0,-7 -6,-13 -14,-13z"/>
+  <path class="fil1" d="M369 322l-24 0 0 -24c0,-7 -6,-13 -13,-13 -8,0 -14,6 -14,13l0 24 -24 0c-7,0 -13,6 -13,13 0,7 6,13 13,13l24 0 0 25c0,7 6,13 14,13 7,0 13,-6 13,-13l0 -25 24 0c8,0 14,-6 14,-13 0,-7 -6,-13 -14,-13z"/>
+  <path class="fil0" d="M329 264c39,0 71,32 71,71 0,39 -32,71 -71,71 -39,0 -71,-32 -71,-71 0,-39 32,-71 71,-71z"/>
+  <polygon class="fil1" points="307,334 307,352 352,352 352,334 380,334 329,291 278,334 "/>
+  <polygon class="fil1" points="307,368 352,368 352,356 307,356 "/>
+  <polygon class="fil1" points="307,380 352,380 352,372 307,372 "/>
+ </g>
+</svg>

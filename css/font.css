@@ -1,0 +1,154 @@
+@font-face {
+	font-family: 'Alex Brush';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Alex Brush'), local('AlexBrush-Regular'), url('font/AlexBrush.woff') format('woff');
+}
+@font-face {
+	font-family: 'Arial Narrow';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Arial Narrow'), url('font/ArialNarrow.ttf');
+}
+@font-face {
+	font-family: 'Arial Rounded MT Bold';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Arial Rounded MT Bold'), local('Arial Rounded MT'), url('font/ARLRDBD.TTF');
+}
+@font-face {
+	font-family: 'Avenir';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Avenir'), url('font/avenir-roman.woff') format('woff');
+}
+@font-face {
+	font-family: 'Baskerville';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Baskerville'), url('font/baskvl.ttf');
+}
+@font-face {
+	font-family: 'Bembo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Bembo'), url('font/bembo.woff') format('woff');
+}
+@font-face {
+	font-family: 'Century';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Century'), url('font/Century.ttf');
+}
+@font-face {
+	font-family: 'Clarendon';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Clarendon'), local('Clarendon LT Std'), url('font/Clarendon.ttf');
+}
+@font-face {
+	font-family: 'Cooper';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Cooper'), url('font/cooprblk.ttf');
+}
+@font-face {
+	font-family: 'Franklin Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Franklin Gothic'), url('font/framd.ttf');
+}
+@font-face {
+	font-family: 'Frutiger';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Frutiger'), local('Frutiger LT Std'), url('font/frutiger_lt_std_roman.woff');
+}
+@font-face {
+	font-family: 'Garamond';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Garamond'), url('font/Garamond.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gill Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Gill Sans'), url('font/GIL_____.TTF');
+}
+@font-face {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Helvetica'), local('Helvetica Roman'), local('Helvetica LT Std'), url('font/HelveticaLTStd-Roman.otf');
+}
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Minion Pro'), local('Minion'), url('font/MinionPro-Regular.otf');
+}
+@font-face {
+	font-family: 'MS Sans Serif';
+	font-style: normal;
+	font-weight: 400;
+	src: local('MS Sans Serif'), local('Microsoft Sans Serif'), local('Sans Serif'), url('font/micross.ttf');
+}
+@font-face {
+	font-family: 'Myriad Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Myriad Pro'), local('Myriad'), url('font/MyriadPro-Regular.otf');
+}
+@font-face {
+	font-family: 'Old English';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Old English'), local('Old English Text MT'), url('font/OLDENGL.TTF');
+}
+@font-face {
+	font-family: 'Perpetua';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Perpetua'), url('font/perpetua.ttf');
+}
+@font-face {
+	font-family: 'Rockwell';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Rockwell'), url('font/rockwell.ttf');
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Rubik Mono One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Rubik Mono One Regular'), local('RubikMonoOne-Regular'), url('font/RubikMonoOneext.woff') format('woff');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+	font-family: 'Rubik Mono One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Rubik Mono One Regular'), local('RubikMonoOne-Regular'), url('font/RubikMonoOne.woff') format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+	font-family: 'Stencil';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Stencil'), url('font/STENCIL.TTF');
+}
+@font-face {
+	font-family: 'S2G Love';
+	font-style: normal;
+	font-weight: 400;
+	src: local('S2G Love'), url('font/love.ttf');
+}
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Ubuntu'), url('font/Ubuntu.woff') format('woff');
+}
