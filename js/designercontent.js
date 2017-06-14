@@ -16,7 +16,11 @@ var memorystack = new Array();
 var memorystackindex = 0;
 var captureinstack = true;
 var saveButtonEle;
+
 var const_pixel_mm = 96 / 25.4;<script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+=======
+var const_pixel_mm = 96 / 25.4;
+
 var autoSaveInterval = 60 * 1000; //auto save in ms
 var dialog, form;
 
@@ -96,7 +100,11 @@ $(document).ready(function() {
 
     document.getElementById("ZoomInButton").addEventListener("click", zoomIn);
     document.getElementById("ZoomOutButton").addEventListener("click", zoomOut);
+
     //document.getElementById("ZoomReset").addEventListener("click", zoomReset);
+
+    document.getElementById("ZoomReset").addEventListener("click", zoomReset);
+
     $("#ZoomFactorInput").val(canvasScale * 100);
 
     saveButtonEle = document.getElementById("SaveButton");
@@ -2187,4 +2195,8 @@ function loadImage(selobj, status) {
 
         canvas.renderAll();
 
+
     });
+
+    });
+
